@@ -92,78 +92,78 @@ fun LemonadeLifeSpan(modifier: Modifier = Modifier) {
     ) {
 
 
-
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .fillMaxWidth(),
-        contentAlignment = Alignment.TopCenter,
-    ) {
-
-        Column(
+        Box(
             modifier = Modifier
-                .align(Alignment.TopCenter)
-                .fillMaxWidth()
-                .height(28.dp)
-                .background(Color.Yellow),
-            horizontalAlignment = Alignment.CenterHorizontally
+                .fillMaxSize()
+                .fillMaxWidth(),
+            contentAlignment = Alignment.TopCenter,
         ) {
-            Text(
-                stringResource(R.string.app_name),
-                fontSize = 20.sp,
-                fontWeight = FontWeight.Bold
-            )
-        }
 
-        Column(
-            modifier = modifier,
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Image(
-                painter = painterResource(imageResource),
-                contentDescription = imageResource.toString(),
-                modifier = Modifier
-                    .size(320.dp)
-                    .clickable {
-                        val randomNumber =
-                            Random.nextInt(10) // Genereer een willekeurig getal tussen 0 en 9
-                        if (randomNumber == 0) { // 1 op de 10 kans om 5 toe te voegen
-                            result = 5
-                        } else {
-                            if (result < 4) {
-                                result++
-                            } else {
-                                result = 1
-                            }
-                        }
-                    }
-                    .background(Color.LightGray)
-            )
-
-            Text(
-                text = result.toString(),
-                fontSize = 16.sp
-            )
-            Spacer(modifier = Modifier.height(16.dp))
-
-            Text(
-                stringResource(stringResource),
-                fontSize = 16.sp
-            )
-        }
-        if (result == 5) {
             Column(
                 modifier = Modifier
-                    .align(Alignment.BottomCenter)
+                    .align(Alignment.TopCenter)
+                    .fillMaxWidth()
+                    .height(28.dp)
+                    .background(Color.Yellow),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = "Kusjes Mick",
+                    stringResource(R.string.app_name),
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            }
+
+            Column(
+                modifier = modifier,
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                Image(
+                    painter = painterResource(imageResource),
+                    contentDescription = imageResource.toString(),
+                    modifier = Modifier
+                        .size(320.dp)
+                        .clickable {
+                            val randomNumber =
+                                Random.nextInt(10) // Genereer een willekeurig getal tussen 0 en 9
+                            if (randomNumber == 0) { // 1 op de 10 kans om 5 toe te voegen
+                                result = 5
+                            } else {
+                                if (result < 4) {
+                                    result++
+                                } else {
+                                    result = 1
+                                }
+                            }
+                        }
+                        .background(Color.LightGray)
+                )
+
+                Text(
+                    text = result.toString(),
+                    fontSize = 16.sp
+                )
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Text(
+                    stringResource(stringResource),
                     fontSize = 16.sp
                 )
             }
+            if (result == 5) {
+                Column(
+                    modifier = Modifier
+                        .align(Alignment.BottomCenter)
+                ) {
+                    Text(
+                        text = "Kusjes Mick",
+                        fontSize = 16.sp
+                    )
+                }
+            }
         }
     }
-}}
+}
 
 
 
